@@ -1,0 +1,68 @@
+
+Introduction To Computer Components 
+Circuits 
+Binary-Decimal
+
+Software Engenering theory 
+
+Programming introduction
+
+Software Eng. Job
+
+
+
+/give @p gold_nugget{display:{Name:'{"text":"MineHeros Coin","color":"gold","bold":true}'},CustomModelData:811200,mineheros_coin:1b} 64
+
+/give @p trident{display:{Name:'{"text":"Ender Fork","color":"dark_purple","bold":true,"italic":true}',Lore:['{"text":"Don\'t throw this fork in lava or you will ","color":"red"}','{"text":"   burn your ass and you will lose it","color":"red"}']},Unbreakable:1b} 1
+
+/give @p diamond_pickaxe{display:{Name:'{"text":"***Ultimate Pickaxe***","color":"green","bold":true}'},HideFlags:5,Unbreakable:1b,CustomModelData:811202,ultimate_pickaxe:1b,Enchantments:[{id:"minecraft:efficiency",lvl:20s},{id:"minecraft:fortune",lvl:10s}]} 1
+
+/give @p warped_fungus_on_a_stick{display:{Name:'{"text":"StormBreaker","color":"dark_aqua","bold":true}'},HideFlags:5,Unbreakable:1b,CustomModelData:811203,stormbreaker:1b,Enchantments:[{id:"minecraft:sharpness",lvl:100s}]} 1
+
+/give @p gold_ingot{display:{Name:'{"text":"Bag Of Coins","color":"gold","bold":true}',Lore:['{"text":"10 Coins","color":"gold","italic":true}']},CustomModelData:811204,bag_of_coin:1b} 1
+
+
+
+
+/summon villager ~ ~1 ~ {VillagerData:{profession:cleric,level:2,type:plains},Invulnerable:1,PersistenceRequired:1,Silent:1,NoAI:1,Rotation: [-90f,0f],CustomName:"\"The Seller\"",Offers:{Recipes:[{buy:{id:gold_nugget,Count:10b,tag:{display:{Name:'{"text":"MineHeros Coin","color":"gold","bold":true}'},CustomModelData:811200,mineheros_coin:10b}},sell:{id:netherite_ingot,Count:1},rewardExp:0b,maxUses:9999999},{buy:{id:gold_nugget,Count:10b,tag:{display:{Name:'{"text":"MineHeros Coin","color":"gold","bold":true}'},CustomModelData:811200,mineheros_coin:1b}},sell:{id:diamond,Count:2},rewardExp:0b,maxUses:9999999}]}}
+
+/summon villager ~ ~1 ~ {VillagerData:{profession:librarian,level:2,type:plains},Invulnerable:1,PersistenceRequired:1,Silent:1,NoAI:1,Rotation: [-90f,0f],CustomName:"\"The Seller\"",Offers:{Recipes:[{buy:{id:netherite_ingot,Count:1},sell:{id:gold_nugget,Count:6b,tag:{display:{Name:'{"text":"MineHeros Coin","color":"gold","bold":true}'},CustomModelData:811200,mineheros_coin:1b}},rewardExp:0b,maxUses:9999999},{buy:{id:diamond,Count:3},sell:{id:gold_nugget,Count:1b,tag:{display:{Name:'{"text":"MineHeros Coin","color":"gold","bold":true}'},CustomModelData:811200,mineheros_coin:1b}},rewardExp:0b,maxUses:9999999}]}}
+
+
+
+
+execute as @a[nbt={SelectedItem:{id:"minecraft:trident",tag:{ender_fork:1b}}}] run execute at @e[type=trident,nbt={inGround:1b}] run tp @p ~ ~ ~
+
+
+execute as @a[nbt={SelectedItem:{id:"minecraft:trident",tag:{ender_fork:1b}}}] run execute at @e[type=trident,nbt={inGround:1b}] run tp thekingofpie ~ ~ ~
+
+
+
+
+
+
+
+1- scoreboard objectives add stormaction minecraft.used:minecraft.warped_fungus_on_a_stick
+2- execute as @a[scores={stormaction=1..},nbt={SelectedItem:{id:"minecraft:warped_fungus_on_a_stick",tag:{stormbreaker:1b}}}] at @s anchored eyes run summon minecraft:lightning_bolt ^ ^-1 ^10
+3 scoreboard players remove @a[scores={stormaction=1..}] stormaction 1
+
+
+
+
+/summon villager ~ ~0.5 ~ {VillagerData:{profession:cartographer,level:2,type:plains},Invulnerable:1,PersistenceRequired:1,Silent:1,NoAI:1,Rotation: [0f,0f],CustomName:"\"Pack Your Coins Here\"",Offers:{Recipes:[{buy:{id:gold_nugget,Count:10b,tag:{display:{Name:'{"text":"MineHeros Coin","color":"gold","bold":true}'},CustomModelData:811200,mineheros_coin:1b}},sell:{id:gold_ingot,Count:1,tag:{display:{Name:'{"text":"Bag Of Coins","color":"gold","bold":true}',Lore:['{"text":"10 Coins","color":"gold","italic":true}']},CustomModelData:811204,bag_of_coin:1b}},rewardExp:0b,maxUses:9999999}]}}
+
+
+
+
+
+
+/summon villager ~ ~0.5 ~-1 {VillagerData:{profession:cleric,level:2,type:plains},Invulnerable:1,ActiveEffects:[{Id:14,Amplifier:0,Duration:2000000000,ShowParticles:0b}],PersistenceRequired:1,Silent:1,NoAI:1,CustomName:"\"Saba7y\"",Offers:{Recipes:[{buy:{id:gold_ingot,Count:20b,tag:{display:{Name:'{"text":"Bag Of Coins","color":"gold","bold":true}',Lore:['{"text":"10 Coins","color":"gold","italic":true}']},CustomModelData:811204,bag_of_coin:1b}},sell:{id:warped_fungus_on_a_stick,Count:1,tag:{display:{Name:'{"text":"StormBreaker","color":"dark_aqua","bold":true}'},HideFlags:5,Unbreakable:1b,CustomModelData:811203,stormbreaker:1b,Enchantments:[{id:"minecraft:sharpness",lvl:100s}]}},rewardExp:0b,maxUses:9999999}]}}
+
+
+/summon minecraft:pillager ~ ~0.5 ~ {NoAI:1,Silent:1,Invulnerable:1,PersistenceRequired:1,CustomName:'{"text":"Saba7y"}',Rotation: [180f,0f],Equipment:[{},{},{},{},{}]}
+
+
+
+
+
+/summon villager ~ ~0.5 ~ {VillagerData:{profession:cleric,level:2,type:plains},Invulnerable:1,PersistenceRequired:1,Silent:1,NoAI:1,Rotation: [180f,0f],CustomName:"\"Saba7y\"",Offers:{Recipes:[{buy:{id:gold_ingot,Count:20b,tag:{display:{Name:'{"text":"Bag Of Coins","color":"gold","bold":true}',Lore:['{"text":"10 Coins","color":"gold","italic":true}']},CustomModelData:811204,bag_of_coin:1b}},sell:{id:warped_fungus_on_a_stick,Count:1,tag:{display:{Name:'{"text":"StormBreaker","color":"dark_aqua","bold":true}'},HideFlags:5,Unbreakable:1b,CustomModelData:811203,stormbreaker:1b,Enchantments:[{id:"minecraft:sharpness",lvl:100s}]}},rewardExp:0b,maxUses:9999999}]}}

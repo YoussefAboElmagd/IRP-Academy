@@ -1,0 +1,234 @@
+------------------------------------------journal --------------------
+create table Journal (
+	    journal_ID INT PRIMARY KEY auto_increment ,
+	      name VARCHAR(50) NOT NULL,  
+    icon VARCHAR(50) NOT NULL,  
+  impact_factor int NOT NULL,
+    description text NOT NULL,
+    launch_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP() ,
+  cite_score int  NOT NULL,
+      About text NOT NULL,
+    apc VARCHAR(50) NOT NULL
+
+);
+--------------------------------------Articles-----------
+CREATE TABLE Articles (
+    article_ID INT PRIMARY KEY auto_increment,
+    title VARCHAR(70) NOT NULL,
+      type VARCHAR(50) NOT NULL,  
+    abstract text NOT NULL,  
+  category VARCHAR(50) NOT NULL,
+    download_link VARCHAR(50) NOT NULL,
+    receive_date DATE NOT NULL DEFAULT,
+    revise_date DATE NOT NULL DEFAULT,
+    publish_date DATE NOT NULL DEFAULT,
+    no_of_pages INT NOT NULL,
+      status VARCHAR(50) NOT NULL,
+	journal_ID INT NOT NULL  ,
+	      CONSTRAINT fK_journal_article FOREIGN KEY (journal_ID) REFERENCES Journal(journal_ID)
+
+);
+----------------------------author_article----------------------
+ create table Author_Article (
+	    author_ID INT NOT NULL ,
+    article_ID INT NOT NULL ,
+first_name varchar(20) not null ,
+middle_name varchar(20) not null ,
+last_name varchar(20) not null ,
+institutional_email_address varchar(70) not null,
+contributor_roles varchar(70) not null,
+corresponding_author boolean not null,
+title varchar(70) not null,
+country varchar(70) not null,
+affiliation varchar(70) not null,
+      CONSTRAINT fK_author foreign KEY (author_ID) REFERENCES Users(user_ID),
+      CONSTRAINT fK_article foreign KEY (article_ID) REFERENCES Articles(article_ID),
+      CONSTRAINT pK_author_article PRIMARY KEY (author_ID,article_ID) 
+);
+----------------------------article_keywords----------------------
+create table Article_Keywords (
+	    keywords_ID INT NOT NULL auto_increment,
+    article_ID INT NOT NULL ,
+keywords VARCHAR(100) NOT NULL , 
+      CONSTRAINT fK_article_keywords foreign KEY (article_ID) REFERENCES Articles( article_ID),
+      CONSTRAINT pK_article_keywords PRIMARY KEY (keywords_ID,article_ID)
+
+);
+----------------------------article_Figure----------------------
+create table article_Figure (
+	figure_ID INT NOT NULL auto_increment ,
+    article_ID INT NOT NULL ,
+figure varchar(60) NOT NULL , 
+      CONSTRAINT fK_article_figure foreign KEY (article_ID) REFERENCES Articles(article_ID),
+      CONSTRAINT pK_article_figure PRIMARY KEY (figure_ID,article_ID)
+
+);
+------------------------journal_section --------------
+CREATE TABLE Journal_Section  (
+section_ID int primary key AUTO_INCREMENT ,
+title varchar(50) NOT NULL,
+information varchar(100) NOT NULL,
+journal_ID int NOT NULL,
+CONSTRAINT fK_journal_section foreign KEY (journal_ID) REFERENCES Journal(journal_ID)
+);
+--------------------------------journal_conferences---------
+CREATE TABLE Journal_Conferences (
+conference_ID int primary key AUTO_INCREMENT ,
+title varchar(50) NOT NULL,
+location varchar(100) NOT NULL,
+description text NOT NULL,
+start_date DATETIME ,
+end_date DATETIME,
+journal_ID int NOT NULL,
+CONSTRAINT fK_journal_conference foreign KEY (journal_ID) REFERENCES Journal(journal_ID)
+);
+----------------------------journal_collaboration--------------
+CREATE TABLE Journal_Collaboration (
+collaboration_ID int primary key AUTO_INCREMENT ,
+title varchar(50) NOT NULL,
+image varchar(100) NOT NULL,
+description text NOT NULL,
+journal_ID int NOT NULL,
+CONSTRAINT fK_journal_collaboration foreign KEY (journal_ID) REFERENCES Journal(journal_ID)
+);
+----------------------journal_award------------------------
+CREATE TABLE Journal_Award (
+award_ID int primary key AUTO_INCREMENT ,
+title varchar(50) NOT NULL,
+image varchar(100) NOT NULL,
+description text NOT NULL,
+deadline DATE NOT NULL,
+journal_ID int NOT NULL,
+CONSTRAINT fK_journal_award foreign KEY (journal_ID) REFERENCES Journal(journal_ID)
+);
+---------------------------------------journal_history---------
+CREATE TABLE Journal_history (
+history_ID int primary key AUTO_INCREMENT ,
+deadline YEAR NOT NULL,
+journal_ID int NOT NULL,
+CONSTRAINT fK_journal_award foreign KEY (journal_ID) REFERENCES Journal(journal_ID)
+);
+-----------------------history_content------------------
+CREATE TABLE History_Content (
+content_ID int NOT NULL AUTO_INCREMENT ,
+deadline YEAR NOT NULL,
+history_ID int NOT NULL,
+CONSTRAINT fK_history_content foreign KEY (history_ID) REFERENCES journal_history(history_ID),
+CONSTRAINT pK_history_content PRIMARY KEY (history_ID,content_ID)
+
+);
+--------------------journal_Section_Editor_in_Chief---------
+create table Journal_Section_Editor_In_Chief (
+chief_ID int primary key AUTO_INCREMENT ,
+start_year DATE not null default ,
+start_year DATE not null default ,
+journal_ID int NOT NULL,
+CONSTRAINT fK_journal_chief foreign KEY (journal_ID) REFERENCES Journal(journal_ID),
+
+);
+----------------------chief_content----------------
+create table chief_content (
+content_ID int not null AUTO_INCREMENT ,
+content varchar(100) not null ,
+chief_ID int NOT NULL,
+CONSTRAINT fK_chief_content foreign KEY (chief_ID) REFERENCES journal_Section_Editor_in_Chief(chief_ID) ,
+CONSTRAINT pK_chief_content PRIMARY KEY (chief_ID,content_ID)
+
+);
+--------------------------journal_topics--------
+create table journal_topics (
+topics_ID int primary key AUTO_INCREMENT ,
+title varchar(50) not null,
+abstract_submission_deadline DATE not null ,
+manuscript submission deadline DATE not null,
+information text not null,
+published_papers int not null,
+journal_ID int NOT NULL,
+CONSTRAINT fK_journal_chief foreign KEY (journal_ID) REFERENCES Journal(journal_ID),
+
+);
+------------------journal_topics_keywords--------
+create table journal_topics_keywords (
+keyword_ID int not null AUTO_INCREMENT ,
+keywords varchar(100) not null ,
+topics_ID int NOT NULL,
+CONSTRAINT fK_journal_topics_keywords foreign KEY (topics_ID) REFERENCES journal_topics(topics_ID) ,
+CONSTRAINT pK_journal_topics_keywords PRIMARY KEY (topics_ID,keyword_ID)
+
+);
+---------------------journal_special_issues---------------
+create table journal_special_issues (
+special_issue_ID int primary key AUTO_INCREMENT ,
+title varchar(50) not null,
+content text not null ,
+deadline DATE not null,
+information text not null,
+published_papers int not null,
+journal_ID int NOT NULL,
+CONSTRAINT fK_journal_special_issues foreign KEY (journal_ID) REFERENCES Journal(journal_ID)
+
+);
+----------------------special_issue_keywords------------
+create table journal_topics_keywords (
+keyword_ID int not null AUTO_INCREMENT ,
+keywords varchar(100) not null ,
+special_issue_ID int NOT NULL,
+CONSTRAINT fK_special_issue_keywords foreign KEY (special_issue_ID) REFERENCES journal_special_issues(special_issue_ID),
+CONSTRAINT pK_special_issue_keywords PRIMARY KEY (special_issue_ID,keyword_ID)
+
+);
+------------------------special_issue_editor--------------
+create table special_issue_editor (
+editor_ID int not null AUTO_INCREMENT ,
+special_issue_ID int NOT NULL,
+CONSTRAINT fK_special_editor foreign KEY (editor_ID) REFERENCES Users(user_ID),
+CONSTRAINT fK_special_issue foreign KEY (special_issue_ID) REFERENCES journal_special_issues(special_issue_ID),
+CONSTRAINT pK_special_issue_editor PRIMARY KEY (special_issue_ID,editor_ID)
+
+);
+----------------------------reviewers_application-----------------
+create table  reviewers_application (
+application_ID int primary key auto_increment,
+highest_degree varchar(50) not null,
+affiliation taxt not null , 
+cv varchar(50) not null,
+status varchar(50) not null,
+reviewed_journals text not null , 
+review_frequency varchar(50) not null
+);
+-------------------------reviwers_application_keywords--------
+create table reviwers_application_keywords(
+keyword_ID int not null auto_increment,
+application_ID int not null, 
+keywords VARCHAR(50) NOT NULL , 
+      CONSTRAINT fK_reviwers_keywords foreign KEY (application_ID) REFERENCES reviewers_application(application_ID),
+      CONSTRAINT pK_reviwers_keywords PRIMARY KEY (keyword_ID,application_ID)
+);
+
+--------------------reviwers_application_journal----------
+create table reviwers_application_journal(
+journal_ID int not null ,
+application_ID int not null, 
+reviewer_journals VARCHAR(50) NOT NULL , 
+      CONSTRAINT fK_reviwers foreign KEY (application_ID) REFERENCES reviewers_application(application_ID),
+      CONSTRAINT fK_journal foreign KEY (journal_ID) REFERENCES Journal(journal_ID),
+      CONSTRAINT pK_reviwers_journal PRIMARY KEY (journal_ID,application_ID)
+);
+----------------------------editor_article----------------------
+create table Editor_Article (
+	    editor_ID INT NOT NULL ,
+    article_ID INT NOT NULL ,
+	recommended boolean not null ,
+      CONSTRAINT fK_editor foreign KEY (editor_ID) REFERENCES Users(user_ID),
+      CONSTRAINT fK_article foreign KEY (article_ID) REFERENCES Articles(article_ID),
+      CONSTRAINT pK_author_article PRIMARY KEY (editor_ID,article_ID)
+);
+
+
+
+
+
+
+
+
+

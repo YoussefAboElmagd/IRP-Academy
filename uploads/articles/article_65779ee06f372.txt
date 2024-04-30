@@ -1,0 +1,79 @@
+<?php 
+  
+    //$article_ID = $_POST['record'];
+    //$auth_mail = $_POST['record_auth_mail'];
+
+   // $sql="SELECT * from article_authors WHERE article_id = '$article_ID' AND email_address =  '$auth_mail' ";
+    //$result=$conn-> query($sql);
+   // $row=$result-> fetch_assoc();
+
+  ?>
+  <!-- Edit Author Modal -->
+  <div class="modal fade" id="editArticleAuthor" role="dialog" style="z-index: 9999;">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Author Information</h4>
+          
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form  enctype='multipart/form-data' onsubmit="updateArticleAuthor()" method="POST">
+          <input type="hidden" id="article_id" value="<?= $article_ID ?>" >
+            <div class="form-group">
+              <label for="name">Author Name:</label>
+              <input type="text" class="form-control mb-2" id="f_name" placeholder="First Name" value="<?=$row["first_name"]?>" required>
+              <input type="text" class="form-control mb-2" id="m_name" placeholder="Middle Name" value="<?=$row["middle_name"]?>" required>
+              <input type="text" class="form-control mb-2" id="l_name" placeholder="Last Name" value="<?=$row["last_name"]?>" required>
+            </div>
+            <div class="form-group">
+              <label for="price">Email:</label>
+              <input type="email" class="form-control" id="a_mail" value="<?=$row["email_address"]?>" required>
+            </div>
+
+            <div class="form-group">
+              <label>Corresponding Author:</label>
+              <select id="corres_auth" >
+                <option disabled selected>Select</option>
+                <option value="1" <?php if($row["corres_auth"] == 1){ echo "selected";} ?> >Yes</option>
+                <option value="0" <?php if($row["corres_auth"] == 0){ echo "selected";} ?> >No</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Author Title</label>
+              <select id="a_title" >
+                <option disabled selected>Select</option>
+                <option value="Dr." <?php if($row["title"] == 1){ echo "selected";} ?> >Dr.</option>
+                <option value="Prof." <?php if($row["title"] == 1){ echo "selected";} ?> >Prof.</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="qty">Affiliation:</label>
+              <input type="text" class="form-control" id="affiliation" value="<?=$row["affiliation"]?>" required>   
+            </div>
+            <div class="form-group">
+                <label for="file">Country:</label>
+                <input type="text" class="form-control-file" value="<?=$row["country"]?>" id="country">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-secondary" id="add_author" style="height:40px">Apply Edit</button>
+            </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" style="height:40px">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- EDIT Author Modal -->
+
+
+
+
+articles_ibfk_1
+fK_reviwer_submitter

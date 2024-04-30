@@ -1,0 +1,7 @@
+enities :-
+1- admin ,eidtor , publisher
+2- journal
+3- artical
+4- news
+6- payment
+7- 

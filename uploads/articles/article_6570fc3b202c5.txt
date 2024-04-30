@@ -1,0 +1,145 @@
+artical -->
+	1- id -->PK
+		2-title
+		3-authors --> multi valued-->many to many
+		4- abstract
+		5-keywords
+		6-type
+		7-Categories
+		8- figures
+		9- download_link
+		10-receive date
+		11- revice date
+		12-accept date
+		13- publish date
+		14- no of pages
+
+		----------------------------------------------------------------------------------------
+user---->
+	1-id
+	2-name-->compsite ->first , last ,middle
+	3-workplace
+	4-job_type
+	5-title-->like prof
+	6-facebook
+	7-  X	(twitter)
+	8- profile_picture
+	9-Affiliation-->  university , fauclty 
+	10-address-->multi valued
+	11-zip_code
+	12- city
+	13- country
+	14- email
+	15-password
+	16- user type
+	17- followers-->multi valued
+	18- co-authors-->multi valued
+	19-following-->multi valued
+	20-keywords
+	21-bio
+	22- achivements -->multi valued
+	----------------------------------------------------------------------
+textcontrol --> contact us , about us --->entite
+--------------------------------------------------------------------------------
+journal-->
+	1- id
+	2- name 
+	3-artical --> نسألهم ينفع الارتكل الواحد يبقي ف اكتر من جورنال --total articals (drived att)
+	4-icon
+	5-lanuch date
+	6-impact factor
+	7-cite score
+	8-description
+	9-About
+	10-Insturctions
+	11- apc
+	12- apc links --> multi valued
+	---------------------------------------------------------------------------------------------------
+special issues-->
+	1- id
+	2- edited by --> multi valued
+	3- title
+	4- keywords --> multi valued
+	5- conte.nt
+	6- deadline
+	7- published papers
+	---------------------------------------------------------------------------------------------------
+
+payment-->
+	1- id
+	2- transaction id
+	3- image
+	4- status
+	5- amount
+
+		---------------------------------------------------------------------------------------------------
+topics -->
+	1- id
+	2- title
+	3- Abstract submission deadline
+	4- Manuscript submission deadline
+	5- information
+	6- keywords 
+	7- published papers
+	---------------------------------------------------------------------------------------------------
+section -->
+	1- id 
+	2- title 
+	3- information
+	---------------------------------------------------------------------------------------------------
+journal history -->
+	1- id
+	2- history year
+	3- history content --> multi valued
+	4- 
+	---------------------------------------------------------------------------------------------------
+Section Editor-in-Chief -->
+	1- start date
+	2- end date
+	3- content --> multi valued
+	4- id
+	---------------------------------------------------------------------------------------------------
+journal award -->
+	1- id
+	2- title
+	3- deadline
+	4- image
+	5- description
+	---------------------------------------------------------------------------------------------------
+collaboration -->
+	1- id
+	2- title
+	3- image
+	4- description
+	---------------------------------------------------------------------------------------------------
+Conferences -->
+	1- id 
+	2- title
+	3- location
+	4- start date
+	5- end date
+	6- description
+	---------------------------------------------------------------------------------------------------
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	

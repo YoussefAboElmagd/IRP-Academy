@@ -1,0 +1,51 @@
+body{
+    font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+    font-style: normal;
+}
+.main{
+    padding: 5rem;
+}
+
+.reg-form h3{
+    color: white;
+    background-color: #513618;
+    margin: 0 0 2rem 0;
+
+    padding: 0.3rem 0.5rem;
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid #513618;
+    border-radius: 2px;
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+}
+form a{
+    color: #5c3d1a;
+    margin-bottom: 0.25rem;
+}
+form button{
+    color: #fff !important;
+    font-weight: 600;
+    background-color: #5c3d1a !important;
+    
+}
+.reg-inp{
+    width: 100%;
+    margin-bottom: 1rem;
+
+}
+.reg-inp input{
+    padding: 0.5rem;
+
+}
+
+
+
+
+.form-control:focus{border-color: #513618;box-shadow: 0 0 0 0.25rem #51361879; -webkit-box-shadow: 0 0 0 0.25rem #51361879;} 

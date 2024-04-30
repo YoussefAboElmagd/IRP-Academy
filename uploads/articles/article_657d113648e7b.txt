@@ -1,0 +1,54 @@
+اهلا بيكم في ديجينيرز معاكم احمد اسامة 
+اكادمية ديجينيرز بتستهدف من 8 - 17
+عندنا مجموعة كورسات _____________
+عندنا كورس CfHtAI
+وفيها هتتعلم __________
+ونظام المتابعة _________
+
+
+بنفسنا From A to Z ونبقي قادرين اننا نبني برنامج كامل
+
+التكنيكاليتي
+بذل المجهود 
+ذكاء اصطناعي 
+لستة فيتشرز وطريقة تطبيقها
+اشتري منك ايه البرنامج؟
+
+
+Full Stack Web Develpement Trainee
+at Route IT Center
+
+IT Trainee
+at The Egyptian Linear Alkyl Benzene Co.
+
+
+Organized and dependable candidate successful at managing multiple priorities while maintaining a strong work ethic and exhibiting a positive attitude. Willingness to take on added responsibilities to meet team goals.
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------
+|                        |
+|     Trip Planner       | 
+|                        |
+--------------------------
+
+1 - user register a profile and list his interest (identity verification for TripMates Feature)
+2 - recommend you a plan and a program for your trip in a certain time span and within budget and duration and gifts and sefoneris
+3 - TripMate option to build a friendship with those who have same intrests as you
+3 - after confirm the plan the application provides real-time updates on weather and local events.
+4 - showning the distance on map with estimate arrival time and check for traffic jam and crowded places>
+5 - AI Chatbot to provide information about places 
+
+
+
+
